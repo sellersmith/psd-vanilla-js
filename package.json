@@ -1,0 +1,34 @@
+{
+  "name": "psd-vanilla-js",
+  "version": "0.1.12",
+  "description": "A robust vanilla JavaScript library designed to parse and handle PSD",
+  "main": "./index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "psd",
+    "vvfx",
+    "parser",
+    "photoshop",
+    "adobe",
+    "reader"
+  ],
+  "files": [
+    "index.js",
+    "index.min.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sellersmith/psd-vanilla-js.git"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "psd.js": "^3.9.0"
+  }
+}
