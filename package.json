@@ -1,17 +1,12 @@
 {
   "name": "psd-vanilla-js",
-  "version": "0.1.15",
+  "version": "0.1.14",
   "description": "A robust vanilla JavaScript library designed to parse and handle PSD",
   "main": "./index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "asbuild:debug": "asc assembly/index.ts --target debug",
-    "asbuild:release": "asc assembly/index.ts --target release",
-    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
-    "test": "node tests",
-    "start": "npx serve ."
+    "preview": "vite preview"
   },
   "keywords": [
     "psd",
@@ -24,7 +19,6 @@
     "reader"
   ],
   "files": [
-    "build",
     "index.js",
     "index.min.js"
   ],
@@ -34,14 +28,7 @@
     "url": "git@github.com:sellersmith/psd-vanilla-js.git"
   },
   "devDependencies": {
-    "assemblyscript": "^0.27.27",
     "vite": "^5.2.0"
   },
-  "dependencies": {},
-  "exports": {
-    ".": {
-      "import": "./build/release.js",
-      "types": "./build/release.d.ts"
-    }
-  }
+  "dependencies": {}
 }
