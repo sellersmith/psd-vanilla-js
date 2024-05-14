@@ -1,6 +1,6 @@
 {
   "name": "psd-vanilla-js",
-  "version": "0.1.16",
+  "version": "0.1.15",
   "description": "A robust vanilla JavaScript library designed to parse and handle PSD",
   "main": "./index.js",
   "scripts": {

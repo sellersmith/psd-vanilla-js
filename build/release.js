@@ -83,8 +83,7 @@ async function instantiate(module, imports = {}) {
   }
   return adaptedExports;
 }
-
-const {
+export const {
   memory,
   _toBase64,
 } = await (async url => instantiate(
@@ -94,8 +93,3 @@ const {
   })(), {
   }
 ))(new URL("release.wasm", import.meta.url));
-
-module.exports = {
-  memory,
-  _toBase64,
-}
