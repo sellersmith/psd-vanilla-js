@@ -1,8 +1,8 @@
 {
   "name": "psd-vanilla-js",
-  "version": "0.1.16",
+  "version": "0.1.36",
   "description": "A robust vanilla JavaScript library designed to parse and handle PSD",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -24,10 +24,10 @@
     "reader"
   ],
   "files": [
-    "build",
-    "index.js",
-    "index.min.js"
+    "dist",
+    "build"
   ],
+  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,11 +37,12 @@
     "assemblyscript": "^0.27.27",
     "vite": "^5.2.0"
   },
-  "dependencies": {},
   "exports": {
     ".": {
-      "import": "./build/release.js",
-      "types": "./build/release.d.ts"
+      "import": "./dist/index.js"
     }
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.27.27"
   }
 }

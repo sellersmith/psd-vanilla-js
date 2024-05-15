@@ -1,11 +1,14 @@
-const {_toBase64} = require('./build/release.js')
-(function webpackUniversalModuleDefinition(root, factory) {
+const PSD = (function webpackUniversalModuleDefinition(root, factory) {
   if (typeof exports === "object" && typeof module === "object")
     module.exports = factory();
   else if (typeof define === "function" && define.amd) define([], factory);
   else {
+    if(!root) root = {}
     root["PSD"] = factory();
+
+    return root["PSD"]
   }
+
 })(this, function () {
   return /******/ (function (modules) {
     // webpackBootstrap
@@ -29023,8 +29026,8 @@ const {_toBase64} = require('./build/release.js')
           RSVP = __webpack_require__(2);
 
           module.exports = {
-            toBase64: function () {
-              var canvas, context, i, imageData, j, len, pixel, pixelData, ref;
+            toBase64: async function () {
+              var canvas, context, imageData, canvasPixelData, imgSourcePixelData;
               canvas = document.createElement("canvas");
               canvas.width = this.width();
               canvas.height = this.height();
@@ -29035,14 +29038,13 @@ const {_toBase64} = require('./build/release.js')
                 this.width(),
                 this.height()
               );
-              pixelData = imageData.data;
-              ref = this.pixelData;
 
-              _toBase64(pixelData, ref);
-              // for (i = j = 0, len = ref.length; j < len; i = ++j) {
-              //   pixel = ref[i];
-              //   pixelData[i] = pixel;
-              // }
+              imgSourcePixelData = this.pixelData
+              canvasPixelData = imageData.data;
+
+              canvasPixelData.set(imgSourcePixelData)
+              // const {_toBase64} = await import('./build/release.js')
+              // const imgData = _toBase64(canvasPixelData, imgSourcePixelData)
 
               context.putImageData(imageData, 0, 0);
               return canvas.toDataURL("image/png");
@@ -30404,4 +30406,6 @@ const {_toBase64} = require('./build/release.js')
     ]
   );
 });
+
+export default PSD
 //# sourceMappingURL=psd.js.map

@@ -1,12 +1,11 @@
 export function _toBase64(
-  imagePixelData: Uint8ClampedArray,
-  _pixelData: Uint8ClampedArray
-): void {
-  var i: i32, j: i32, len: i32, pixel: i32, ref: Uint8ClampedArray;
-
-  ref = _pixelData;
-  for (i = j = 0, len = ref.length; j < len; i = ++j) {
-    pixel = ref[i];
-    imagePixelData[i] = pixel;
+  imageData: Uint8ClampedArray,
+  ref: Uint8ClampedArray
+): Uint8ClampedArray {
+  const len: u32 = ref.length;
+  for (let i: u32 = 0; i < len; i++) {
+    imageData[i] = ref[i];
   }
+
+  return imageData
 }
