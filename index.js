@@ -25716,10 +25716,7 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
                   0 <= ref ? j < ref : j > ref;
                   i = 0 <= ref ? ++j : --j
                 ) {
-                  const _id = uuid();
-                  this.layers.push(
-                    new Layer(this.file, this.header, _id).parse()
-                  );
+                  this.layers.push(new Layer(this.file, this.header).parse());
                 }
                 ref1 = this.layers;
                 for (k = 0, len = ref1.length; k < len; k++) {
@@ -25847,9 +25844,9 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
 
             Layer.includes(__webpack_require__(71));
 
-            function Layer(file, header, _id) {
+            function Layer(file, header) {
               this.file = file;
-              this._id = _id;
+              this._id = uuid();
               this.header = header;
               this.mask = {};
               this.blendingRanges = {};
@@ -29798,9 +29795,7 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
                   parent.children().push(currentGroup);
                   currentGroup = parent;
                 } else {
-                  currentGroup
-                    .children()
-                    .push(new Layer(layer, currentGroup, layer._id));
+                  currentGroup.children().push(new Layer(layer, currentGroup));
                 }
               }
               return this.updateDimensions();
