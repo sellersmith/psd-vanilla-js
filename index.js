@@ -1,14 +1,15 @@
+import { uuid } from "./uuid";
+
 const PSD = (function webpackUniversalModuleDefinition(root, factory) {
   if (typeof exports === "object" && typeof module === "object")
     module.exports = factory();
   else if (typeof define === "function" && define.amd) define([], factory);
   else {
-    if(!root) root = {}
+    if (!root) root = {};
     root["PSD"] = factory();
 
-    return root["PSD"]
+    return root["PSD"];
   }
-
 })(this, function () {
   return /******/ (function (modules) {
     // webpackBootstrap
@@ -25715,7 +25716,10 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
                   0 <= ref ? j < ref : j > ref;
                   i = 0 <= ref ? ++j : --j
                 ) {
-                  this.layers.push(new Layer(this.file, this.header).parse());
+                  const _id = uuid();
+                  this.layers.push(
+                    new Layer({ ...this.file, _id }, this.header).parse()
+                  );
                 }
                 ref1 = this.layers;
                 for (k = 0, len = ref1.length; k < len; k++) {
@@ -25845,6 +25849,7 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
 
             function Layer(file, header) {
               this.file = file;
+              this._id = file._id;
               this.header = header;
               this.mask = {};
               this.blendingRanges = {};
@@ -29027,7 +29032,11 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
 
           module.exports = {
             toBase64: async function () {
-              var canvas, context, imageData, canvasPixelData, imgSourcePixelData;
+              var canvas,
+                context,
+                imageData,
+                canvasPixelData,
+                imgSourcePixelData;
               canvas = document.createElement("canvas");
               canvas.width = this.width();
               canvas.height = this.height();
@@ -29039,10 +29048,10 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
                 this.height()
               );
 
-              imgSourcePixelData = this.pixelData
+              imgSourcePixelData = this.pixelData;
               canvasPixelData = imageData.data;
 
-              canvasPixelData.set(imgSourcePixelData)
+              canvasPixelData.set(imgSourcePixelData);
               // const {_toBase64} = await import('./build/release.js')
               // const imgData = _toBase64(canvasPixelData, imgSourcePixelData)
 
@@ -30407,5 +30416,5 @@ const PSD = (function webpackUniversalModuleDefinition(root, factory) {
   );
 });
 
-export default PSD
+export default PSD;
 //# sourceMappingURL=psd.js.map
